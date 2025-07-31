@@ -41,6 +41,7 @@ This is a simple Django application that allows you to share files between devic
 Once the server is running, you can access the application from any device on the same network by navigating to the `Network IP` address followed by the `port number`.
 <br>
 For Example:
+<br>
 <img width="673" height="305" alt="Screenshot 2025-08-01 042422" src="https://github.com/user-attachments/assets/788e0231-bb35-4e6f-a63b-3072e9ab5416" />
 <br>
 for your device the Network IP can be different 
