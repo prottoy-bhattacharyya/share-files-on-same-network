@@ -23,6 +23,7 @@ This is a simple Django application that allows you to share files between devic
     ```
 
 2. **Install Python dependencies**
+   <br><br>
     Make sure Python is installed: [Download Python](https://www.python.org/downloads/)
     
     ```bash
@@ -31,7 +32,7 @@ This is a simple Django application that allows you to share files between devic
     uv will automatically create a virtual environment and install all the dependencies.
 
 
-3.  **Start the development server:**
+4.  **Start the development server:**
 
     ```bash
     python -m uv run manage.py runserver 0.0.0.0:8000
