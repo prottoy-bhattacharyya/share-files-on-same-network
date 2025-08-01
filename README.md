@@ -4,8 +4,8 @@ This is a simple Django application that allows you to share files between devic
 
 ## Features
 
-*   Upload files through a web interface.
-*   Download files from a list of uploaded files.
+*   Send files to other devices on the same network.
+*   Receive/Download files from other devices on the same network.
 *   Responsive design for use on different devices.
 
 ## Requirements
