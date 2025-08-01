@@ -22,7 +22,7 @@ This is a simple Django application that allows you to share files between devic
     cd share-files-on-same-network
     ```
 
- **2. Install Python dependencies**
+2. **Install Python dependencies**
     Make sure Python is installed: [Download Python](https://www.python.org/downloads/)
     
     ```bash
