@@ -4,50 +4,91 @@
 
 {% block style %}
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
-    font-family: sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding: 20px;
 }
 
-.upload-container {
-    background-color: #fff;
+.container {
+    display: grid;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.upload-container, .files-container {
+    background-color: #ffffff;
     padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.upload-container:hover, .files-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
     text-align: center;
-    width: 400px;
 }
 
 .upload-area {
-    border: 2px dashed #ccc;
-    border-radius: 10px;
-    padding: 60px 20px;
+    border: 3px dashed #d1d8e0;
+    border-radius: 15px;
+    padding: 40px 20px;
     cursor: pointer;
-    transition: border-color 0.3s, background-color 0.3s;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .upload-area:hover, .upload-area.dragover {
-    border-color: #007bff;
-    background-color: #f0f8ff;
+    border-color: #4a90e2;
+    background-color: #f7faff;
 }
 
 .upload-area-icon {
-    font-size: 48px;
-    color: #007bff;
+    font-size: 52px;
+    color: #4a90e2;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
 }
 
 .upload-area-text {
     margin-top: 20px;
     color: #555;
+    font-weight: 300;
 }
 
 .upload-area-text strong {
-    color: #007bff;
+    color: #4a90e2;
+    font-weight: 600;
 }
 
 #file-input {
@@ -58,23 +99,30 @@ body {
     margin-top: 20px;
     font-style: italic;
     color: #333;
+    font-weight: 400;
+    height: 20px;
+    transition: all 0.3s ease;
 }
 
 .submit-btn {
-    background-color: #007bff;
+    background: linear-gradient(45deg, #4a90e2, #0073e6);
     color: #fff;
     border: none;
-    padding: 12px 30px;
-    border-radius: 5px;
+    padding: 15px 40px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 600;
     margin-top: 20px;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
     position: relative;
+    overflow: hidden;
+    width: 100%;
 }
 
 .submit-btn:hover {
-    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
 }
 
 .submit-btn .spinner {
@@ -101,20 +149,22 @@ body {
 }
 
 .cancel-btn {
-    background-color: #dc3545;
+    background: #e74c3c;
     color: #fff;
     border: none;
     padding: 12px 30px;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
     display: none; /* Initially hidden */
+    width: 100%;
 }
 
 .cancel-btn:hover {
-    background-color: #c82333;
+    background: #c0392b;
+    box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
 }
 
 @keyframes spin {
@@ -122,27 +172,98 @@ body {
         transform: rotate(360deg);
     }
 }
+
+.file-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.file-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #f7faff;
+    transition: all 0.3s ease;
+}
+
+.file-list li:hover {
+    transform: translateX(5px);
+    background-color: #eef5ff;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.file-info .icon {
+    font-size: 24px;
+    color: #4a90e2;
+}
+
+.download-btn {
+    background-color: #2ecc71;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #27ae60;
+    transform: scale(1.05);
+}
+
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="upload-container">
-    <form action="" method="post" enctype="multipart/form-data" id="upload-form">
-        {% csrf_token %}
-        <div class="upload-area" id="upload-area">
-            <div class="upload-area-icon">&#x1F4C2;</div>
-            <div class="upload-area-text">
-                Drag & Drop your file here or <strong>Browse</strong>
+<div class="container">
+    <div class="files-container">
+        <h1>Available Files</h1>
+        <ul class="file-list">
+            {% for item in items_dict.values %}
+                <li>
+                    <div class="file-info">
+                        <span class="icon">&#x1F4C4;</span>
+                        <span>{{ item }}</span>
+                    </div>
+                    <a href="{% url 'download' item %}" class="download-btn">Download</a>
+                </li>
+            {% empty %}
+                <li>No files available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="upload-container">
+        <h1>Upload a File</h1>
+        <form action="" method="post" enctype="multipart/form-data" id="upload-form">
+            {% csrf_token %}
+            <div class="upload-area" id="upload-area">
+                <div class="upload-area-icon">&#x1F4C2;</div>
+                <div class="upload-area-text">
+                    Drag & Drop your file here or <strong>Browse</strong>
+                </div>
+                <input type="file" name="file" id="file-input">
             </div>
-            <input type="file" name="file" id="file-input">
-        </div>
-        <div id="file-name"></div>
-        <button type="submit" class="submit-btn" id="submit-btn">
-            <span class="btn-text">Upload</span>
-            <div class="spinner"></div>
-        </button>
-        <button type="button" class="cancel-btn" id="cancel-btn">Cancel</button>
-    </form>
+            <div id="file-name"></div>
+            <button type="submit" class="submit-btn" id="submit-btn">
+                <span class="btn-text">Upload</span>
+                <div class="spinner"></div>
+            </button>
+            <button type="button" class="cancel-btn" id="cancel-btn">Cancel</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
 
@@ -151,12 +272,15 @@ body {
     const uploadArea = document.getElementById('upload-area');
     const fileInput = document.getElementById('file-input');
     const fileName = document.getElementById('file-name');
+    const uploadForm = document.getElementById('upload-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
 
     uploadArea.addEventListener('click', () => fileInput.click());
 
     fileInput.addEventListener('change', () => {
         if (fileInput.files.length > 0) {
-            fileName.textContent = fileInput.files[0].name;
+            fileName.textContent = `Selected: ${fileInput.files[0].name}`;
         }
     });
 
@@ -174,36 +298,47 @@ body {
         uploadArea.classList.remove('dragover');
         fileInput.files = e.dataTransfer.files;
         if (fileInput.files.length > 0) {
-            fileName.textContent = fileInput.files[0].name;
+            fileName.textContent = `Selected: ${fileInput.files[0].name}`;
         }
     });
 
-    document.getElementById('upload-form').addEventListener('submit', function(e) {
-        const submitBtn = document.getElementById('submit-btn');
-        const cancelBtn = document.getElementById('cancel-btn');
-        
+    uploadForm.addEventListener('submit', function(e) {
+        if (fileInput.files.length === 0) {
+            e.preventDefault();
+            alert('Please select a file to upload.');
+            return;
+        }
+
         submitBtn.classList.add('loading');
         submitBtn.disabled = true;
-        cancelBtn.style.display = 'inline-block';
+        cancelBtn.style.display = 'block';
 
-        // To demonstrate cancellation, we'll use a setTimeout.
-        // In a real application, you would use XMLHttpRequest or Fetch API to handle the upload
-        // and provide a mechanism to abort the request.
-        const uploadTimeout = setTimeout(() => {
-            // This block will execute if the upload is not cancelled
-            // and completes successfully.
-            // You can add your form submission logic here.
-            
-        }, 5000); // 5-second mock upload
+        // This is a mock upload. In a real application, you would use
+        // XMLHttpRequest or Fetch API to handle the upload and cancellation.
+        const mockUpload = new Promise((resolve, reject) => {
+            const timeout = setTimeout(() => {
+                resolve();
+            }, 3000);
 
-        cancelBtn.addEventListener('click', () => {
-            clearTimeout(uploadTimeout);
+            cancelBtn.addEventListener('click', () => {
+                clearTimeout(timeout);
+                reject(new Error('Upload cancelled'));
+            }, { once: true });
+        });
+
+        mockUpload.then(() => {
+            // This is where you would actually submit the form
+            // For this example, we'll just let the form submit naturally
+            // after the "loading" animation.
+            // In a real scenario with Fetch/XHR, you would handle the
+            // form submission via JavaScript.
+        }).catch(error => {
+            console.log(error.message);
             submitBtn.classList.remove('loading');
             submitBtn.disabled = false;
             cancelBtn.style.display = 'none';
             fileInput.value = '';
-            fileName.textContent = ''; 
-            window.stop();
+            fileName.textContent = '';
         });
     });
 </script>
