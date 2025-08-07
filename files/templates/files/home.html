@@ -233,6 +233,71 @@
         background-color: #27ae60;
         transform: scale(1.05);
     }
+
+    /* Responsive Design */
+    @media (min-width: 992px) {
+        .container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding: 15px;
+        }
+
+        .upload-container,
+        .files-container {
+            padding: 25px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .upload-area {
+            padding: 30px 15px;
+        }
+
+        .upload-area-icon {
+            font-size: 48px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .upload-container,
+        .files-container {
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .submit-btn {
+            padding: 12px 30px;
+            font-size: 15px;
+        }
+
+        .file-list li {
+            padding: 12px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .download-btn {
+            align-self: flex-end;
+        }
+    }
 </style>
 {% endblock %}
 
