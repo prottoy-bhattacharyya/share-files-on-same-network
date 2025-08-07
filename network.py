@@ -75,6 +75,4 @@ def get_ip_and_dns_suffix():
         for adapter in adapters_info:
             if adapter['dns_suffix'] == "Home":
                 return adapter['ipv4_address']
-
-                
             

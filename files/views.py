@@ -18,7 +18,7 @@ from django.shortcuts import render
 from django.http import FileResponse, Http404
 import os
 
-upload_folder = "D:/project/web_dev/django/share_files/uploads"
+upload_folder = "./uploads"
 # Create your views here.
 def home(request):
     if request.method == 'POST':
