@@ -5,7 +5,7 @@ This is a simple Django application that allows you to share files between devic
 ## Features
 
 *   Send files to other devices on the same network.
-*   Receive/Download files from other devices on the same network.
+*   Download files from other devices on the same network.
 *   Responsive design for use on different devices.
 
 ## Requirements
@@ -41,7 +41,7 @@ This is a simple Django application that allows you to share files between devic
 
     ***Android Devices :***
     <br>
-    2.1. goto the folder you wanted to save the files 
+    2.1. goto the folder you wanted to save the files. Files will be saved on `uploads` folder
 
     ```bash
     termux-setup-storage
@@ -79,7 +79,7 @@ This is a simple Django application that allows you to share files between devic
 
 ## Accessing the Application
 
-Once the server is running, you can access the application from any device on the same network by navigating to the `Network IP` address followed by the `port number`. Eg., `192.168.0.103:8000` in your browser
+Once the server is running, you can access the application from any device on the same network by navigating to the `Network IP` address followed by the `port number`. Eg., `192.168.0.103:8000` in your browser. Files will be saved on `uploads` folder of your server.
 <br>
 <br>
 **For Example:**
