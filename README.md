@@ -65,7 +65,7 @@ This is a simple Django application that allows you to share files between devic
     ```
     <br>
     <br>
-    ![Screenshot_2025-08-08-13-19-19-41_84d3000e3f4017145260f7618db1d683](https://github.com/user-attachments/assets/d08fb016-3567-4d11-946b-600861a39147)
+    <img width="673" height="305" alt="Screenshot 2025-08-01 042422" src="https://github.com/user-attachments/assets/d08fb016-3567-4d11-946b-600861a39147" />
     <br>
     <br>
     3.2 Run the Server
