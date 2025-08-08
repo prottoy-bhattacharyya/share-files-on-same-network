@@ -23,6 +23,7 @@ This is a simple Django application that allows you to share files between devic
     ```
 
     ***Android Devices:***
+    <br>
     1.1. Open Termux and type
     ```bash
     pkg install git
@@ -39,6 +40,7 @@ This is a simple Django application that allows you to share files between devic
     uv will automatically create a virtual environment and install all the dependencies.
 
     ***Android Devices :***
+    <br>
     2.1. goto the folder you wanted to save the files 
 
     ```bash
@@ -58,6 +60,7 @@ This is a simple Django application that allows you to share files between devic
     python -m uv run manage.py runserver 0.0.0.0:8000
     ```
     ***Android Devices :***
+    <br>
     3.1. Find your Network IP Address
 
     ```bash
@@ -76,7 +79,7 @@ This is a simple Django application that allows you to share files between devic
 
 ## Accessing the Application
 
-Once the server is running, you can access the application from any device on the same network by navigating to the `Network IP` address followed by the `port number`.
+Once the server is running, you can access the application from any device on the same network by navigating to the `Network IP` address followed by the `port number`. Eg., `192.168.0.103:8000` in your browser
 <br>
 <br>
 **For Example:**
