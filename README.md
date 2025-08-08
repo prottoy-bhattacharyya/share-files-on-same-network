@@ -22,6 +22,13 @@ This is a simple Django application that allows you to share files between devic
     cd share-files-on-same-network
     ```
 
+    ***Android Devices:***
+    1.1. Open Termux and type
+    ```bash
+    pkg install git
+    git clone https://github.com/prottoy-bhattacharyya/share-files-on-same-network.git
+    ```
+
 2. **Install Python dependencies**
    <br><br>
     Make sure Python is installed: [Download Python](https://www.python.org/downloads/)
@@ -31,11 +38,35 @@ This is a simple Django application that allows you to share files between devic
     ```
     uv will automatically create a virtual environment and install all the dependencies.
 
+    ***Android Devices :***
+    2.1. goto the folder you wanted to save the files 
 
-4.  **Start the development server:**
+    ```bash
+    termux-setup-storage
+    cd <directory>
+    ```
+    2.2. Install Dependencies:
+    
+    ```bash
+    pkg install python
+    pip install django
+    ```
+
+3.  **Start the development server:**
 
     ```bash
     python -m uv run manage.py runserver 0.0.0.0:8000
+    ```
+    ***Android Devices :***
+    3.1. Find your Network IP Address
+
+    ```bash
+    ifconfig
+    ```
+
+    3.2 Run the Server
+    ```bash
+    python manage.py runserver 0.0.0.0:8000
     ```
 
 ## Accessing the Application
