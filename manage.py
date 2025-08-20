@@ -23,7 +23,7 @@ if __name__ == '__main__':
     local_ip = network.get_ip()
     print("local Host -> http://127.0.0.1:8000")
     if local_ip:
-        print(f"Network IP -> http://{local_ip}:8000\n")
+        print(f"{local_ip}")
     else:
         print("No Network IP Found\n")
     main()
