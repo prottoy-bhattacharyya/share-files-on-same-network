@@ -20,10 +20,17 @@ def main():
 
 
 if __name__ == '__main__':
-    local_ip = network.get_ip()
+    local_ips = network.get_non_loopback_ip()
     print("local Host -> http://127.0.0.1:8000")
-    if local_ip:
-        print(f"{local_ip}")
+
+    if len(local_ips) > 1:
+        print("One of these address will work: \n")
+    if local_ips:
+        for ip in local_ips:
+            print(f"Network IP -> http://{ip}:8000")
     else:
         print("No Network IP Found\n")
+    
+    print("\n")
     main()
+    
