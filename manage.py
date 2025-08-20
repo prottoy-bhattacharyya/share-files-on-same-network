@@ -23,7 +23,11 @@ if __name__ == '__main__':
     local_ips = network.get_non_loopback_ip()
     print("local Host -> http://127.0.0.1:8000")
 
-    if len(local_ips) > 1:
+    lenth = 0
+    for _ in local_ips:
+        lenth += 1
+    # if len(local_ips) > 1:
+    if lenth > 1:
         print("One of these address will work: \n")
     if local_ips:
         for ip in local_ips:
